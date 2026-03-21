@@ -11,7 +11,9 @@ from fasthtml.common import (
 import requests
 import os
 
-ULTRAVOX_API_KEY = os.environ.get('ULTRAVOX_API_KEY', "<your api key>")
+ULTRAVOX_API_KEY = os.environ.get('ULTRAVOX_API_KEY')
+if not ULTRAVOX_API_KEY:
+    raise RuntimeError("ULTRAVOX_API_KEY environment variable is required")
 
 app, rt = fast_app(pico=False, hdrs=(Script(src="https://cdn.tailwindcss.com"),))
 
