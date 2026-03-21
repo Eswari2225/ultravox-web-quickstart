@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: ultravox-web-quickstart
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    envVars:
+      - key: ULTRAVOX_API_KEY
+        scope: build

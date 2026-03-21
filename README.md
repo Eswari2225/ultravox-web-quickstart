@@ -1,18 +1,88 @@
 # Ultravox Web Quickstart
 
-This is a quickstart project for creating a web-based Voice AI Agent on Ultravox. We've tried to keep it as simple as possible to show all of the key parts in a single file.
+A simple web interface for voice conversations using the Ultravox API. This is a quickstart project for creating a web-based Voice AI Agent on Ultravox with all the key parts in a single file.
 
-This example depends on the `python-fasthtml` package, which is a great little project for building web apps in pure python. We need the web app to create the initial request to Ultravox to start the call.
+## Features
 
-On the client, we depend on the `ultravox-client` library (see [npm package](https://www.npmjs.com/package/ultravox-client)). To simplify the example, we load the Ultravox Client library directly from [esm.sh](https://esm.sh).
+- 🎤 Voice-based chat with AI assistant
+- 🐱 Example tool integration (cat facts)
+- 🎨 Clean Tailwind CSS UI
+- ⚡ Real-time transcripts
 
-## Getting Started
+## Tech Stack
 
-1. Clone this repository
-1. Install [https://fastht.ml/](https://fastht.ml/) with `pip install python-fasthtml`
-1. Get an API key from [https://app.ultravox.ai](app.ultravox.ai) and either set it as an environment variable under `ULTRAVOX_API_KEY` or replace the value in `main.py`
-1. Run `python main.py`
-1. Open your browser to `http://localhost:5001`
+- **FastHTML**: Lightweight Python web framework
+- **Ultravox Client**: Voice AI library
+- **Tailwind CSS**: Modern styling
+- **Python 3.x**
+
+## Local Setup
+
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/Eswari2225/ultravox-web-quickstart.git
+   cd ultravox-web-quickstart
+   ```
+
+2. Create a virtual environment:
+   ```bash
+   python -m venv .venv
+   .venv\Scripts\Activate.ps1  # Windows PowerShell
+   # or
+   source .venv/bin/activate  # macOS/Linux
+   ```
+
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. Set up your API key:
+   ```bash
+   cp .env.example .env
+   # Edit .env and add your ULTRAVOX_API_KEY from https://app.ultravox.ai
+   ```
+
+5. Run the app:
+   ```bash
+   python main.py
+   ```
+   Open your browser to `http://127.0.0.1:8000/`
+
+## Deployment
+
+### Render (Recommended - Free)
+
+1. Ensure your code is pushed to GitHub (done).
+2. Go to [render.com](https://render.com) and sign in with GitHub.
+3. Click **New +** → **Web Service**.
+4. Select your `ultravox-web-quickstart` repo.
+5. Render will auto-detect from `render.yaml`.
+6. Add environment variable:
+   - Key: `ULTRAVOX_API_KEY`
+   - Value: your Ultravox API key from https://app.ultravox.ai
+7. Click **Create Web Service**.
+
+Your app will be live in 2–3 minutes!
+
+### Other Platforms
+
+Railway, Fly.io, and Heroku also support this setup via `Procfile` and `requirements.txt`:
+
+1. Connect your GitHub repo
+2. Add `ULTRAVOX_API_KEY` as an environment variable
+3. Deploy
+
+## API Endpoints
+
+- `GET /` – Home page with call UI
+- `POST /start` – Initiate a voice call with AI assistant
+- `GET /end` – End the current call
+
+## Environment Variables
+
+- `ULTRAVOX_API_KEY` (required) – Your Ultravox API key
 
 ## Looking for React?
-If you're looking for a more advanced example using React, go here: [https://github.com/fixie-ai/ultravox-demo-template-vercel](https://github.com/fixie-ai/ultravox-demo-template-vercel).
+
+For a more advanced example using React, see: [https://github.com/fixie-ai/ultravox-demo-template-vercel](https://github.com/fixie-ai/ultravox-demo-template-vercel)
