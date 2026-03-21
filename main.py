@@ -142,4 +142,8 @@ async def post():
 def get():
     return Button("Restart", cls=TW_BUTTON, hx_get="/", hx_target="body", hx_boost="false")
 
-serve()
+# Export app for gunicorn
+application = app
+
+if __name__ == "__main__":
+    serve()

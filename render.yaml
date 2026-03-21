@@ -3,7 +3,7 @@ services:
     name: ultravox-web-quickstart
     runtime: python
     buildCommand: pip install -r requirements.txt
-    startCommand: python main.py
+    startCommand: gunicorn -w 1 -b 0.0.0.0:$PORT main:application
     envVars:
       - key: ULTRAVOX_API_KEY
         scope: build
